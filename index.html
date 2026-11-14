@@ -4088,5 +4088,377 @@ function cheer(){const now=Date.now();if(now-_chT<900)return;_chT=now;
 const _gbN=gbeep;gbeep=function(f){_gbN(f);if(f===880)cheer()};
 new MutationObserver(ms=>{for(const m of ms)for(const n of m.addedNodes){if(n.nodeType===1&&/^\s*✅ Đúng/.test(n.textContent||'')){cheer();return}}}).observe(document.getElementById('m'),{childList:true});
 
+// ===== v22: Từ vựng mới & Ngữ pháp mới (cập nhật theo ngày) =====
+(()=>{
+/* ============ DỮ LIỆU: CHỈ SỬA PHẦN NÀY MỖI KHI CẬP NHẬT ============ */
+const NEW_DAYS = 7; // số ngày chữ MỚI còn nhấp nháy
+
+/* Từ vựng: mỗi dòng  english | tiếng Việt | câu ví dụ (có thể bỏ trống). Thêm ngày mới lên ĐẦU. */
+const VOCAB = [
+{date:"14/11/2026", text:`
+cottage|nhà tranh
+python|con trăn
+at least|ít nhất
+twice|2 lần
+triangle|hình tam giác|A triangle has three sides.
+globe|quả địa cầu
+lazy|lười biếng
+clever|thông minh
+stupid|ngốc
+boots|đôi ủng
+stream|suối
+in the middle|ở chính giữa
+fence|hàng rào
+syllable|âm tiết
+sharpener|cục gọt bút chì
+crab|con cua
+juice|nước ép
+bike|xe đạp
+jam|mứt
+belt|dây thắt lưng (bell = cái chuông)
+bedroom|phòng ngủ
+park|công viên|Why don't we go to the park tomorrow?
+plate|cái đĩa
+lake|cái hồ
+zoo|sở thú
+spoon|cái muỗng
+cup|cái ly
+Earth|Trái Đất|There are eight planets.
+goose|con ngỗng
+district|quận, huyện|Their school is in Hai Ba Trung District.
+mask|mặt nạ
+lamb|con cừu con
+penfriend|bạn qua thư
+history|lịch sử
+geography|địa lý
+Information Technology (IT)|tin học
+Physical Education (PE)|thể dục
+lotus|hoa sen
+yard|sân
+coconut|quả dừa
+nursing home|viện dưỡng lão
+spell|đánh vần
+flag|lá cờ
+map|bản đồ
+capital|thủ đô
+winter|mùa đông
+snake|con rắn
+sand|cát
+tea|trà
+sea|biển
+pizza|bánh pizza
+square|hình vuông
+a glass of milk|1 ly sữa
+ice cream|kem|I like ice cream.
+cake|bánh
+box|cái hộp
+run|chạy
+wash the car|rửa xe|I wash the car on Sunday.
+our|của chúng tôi|Our garden is big.
+your|của bạn|What is your hobby?
+her|của cô ấy|Her bag and shirts are blue and black.
+new|mới
+old|cũ
+big|to
+small|nhỏ
+tall|cao|Opposite of short is tall.
+short|thấp
+colour|màu
+smell|ngửi
+flower|hoa|How beautiful the flowers are!
+house|ngôi nhà|Please come to my house.
+room|phòng|This is my room.
+garden|khu vườn
+orange|quả cam|Two oranges
+pen|cây bút|This pink pen is for you.
+bag|cái cặp
+shirt|cái áo sơ mi
+pink|màu hồng
+blue|màu xanh dương
+black|màu đen
+brown|màu nâu|These books are brown.
+hobby|sở thích|What is your hobby?
+June|tháng 6|After June is July.
+July|tháng 7
+December|tháng 12|The first of December
+quiet|yên lặng|Be quiet! Sorry, sir.
+keep silent|giữ im lặng
+sir|thưa ngài
+smiling|đang cười
+cute|dễ thương
+music|âm nhạc
+move|di chuyển
+exam|kỳ thi|Study hard for the exam.
+nurse|y tá|She works as a nurse.
+planet|hành tinh|There are eight planets.
+side|cạnh
+tomorrow|ngày mai|See you tomorrow.
+dislike|không thích|What subjects do you dislike?
+talk about|nói về|What are they talking about?
+`},
+{date:"11/11/2026", text:`
+go for a picnic|đi dã ngoại
+uniform|đồng phục
+key|chìa khóa
+circus|rạp xiếc
+on the beach|trên bãi biển
+grade|khối (lớp)
+movie|phim (= film)|We are going to see a movie tonight.
+film|phim
+stage|sân khấu
+practise|luyện tập
+crowded|đông đúc|a crowded street
+too fast|quá nhanh|Don't ride your bike too fast!
+ate|đã ăn (quá khứ của eat)|eat the cake → ate the cake
+`},
+{date:"09/11/2026", text:`
+clean|sạch|Clean is opposite of dirty.
+dirty|bẩn
+airport|sân bay
+white|màu trắng|beautiful in white
+`}
+];
+
+/* Ngữ pháp. v = mã video YouTube (11 ký tự sau v= trong link). Để trống thì hiện nút tìm video. */
+const GRAM = [
+{date:"14/11/2026", items:[
+{t:"1. What about + V-ing?",form:"What about + động từ thêm -ing + ...?",
+ how:"Dùng để rủ ai làm gì hoặc gợi ý. Sau What about, động từ luôn thêm ing. Trả lời: Good idea! / Great! / Sorry, I can't.",
+ ex:[["What about going to the park?","Đi công viên nhé?"],["What about playing football?","Chơi bóng đá nhé?"]],
+ tip:"Nhớ: What about + V-ing, không dùng động từ nguyên mẫu.",v:"",q:"What about + V-ing ngữ pháp tiếng Anh lớp 4 5"},
+{t:"2. Why don't we + V?",form:"Why don't we + động từ nguyên mẫu + ...? - It's a great idea.",
+ how:"Cũng dùng để rủ ai đó cùng làm gì. Sau Why don't we là động từ nguyên mẫu không to. Đồng ý: It's a great idea. / OK, let's go.",
+ ex:[["Why don't we go to the park tomorrow?","Sao ngày mai chúng ta không đi công viên nhỉ?"],["It's a great idea.","Ý hay đấy!"]],
+ tip:"Why don't we + V (không thêm ing, không thêm to).",v:"",q:"Why don't we ngữ pháp tiếng Anh tiểu học"},
+{t:"3. Please + động từ nguyên mẫu",form:"Please + V (nguyên mẫu) + ...",
+ how:"Please nghĩa là xin hãy, dùng khi nhờ hoặc yêu cầu lịch sự. Sau Please là động từ nguyên mẫu. Please có thể đứng đầu hoặc cuối câu.",
+ ex:[["Please come to my house.","Xin mời đến nhà mình."],["Please show me how this machine works.","Làm ơn chỉ cho mình máy này hoạt động thế nào."],["Be quiet, please!","Hãy yên lặng!"]],
+ tip:"Không nói: Please comes. Luôn dùng nguyên mẫu.",v:"",q:"Please + động từ nguyên mẫu câu mệnh lệnh tiếng Anh tiểu học"},
+{t:"4. Câu cảm thán: How + adj + S + be!",form:"How + tính từ + chủ ngữ + be!",
+ how:"Dùng để bày tỏ cảm xúc ngạc nhiên, khen ngợi. Đặt tính từ ngay sau How, rồi đến chủ ngữ và be (is/are).",
+ ex:[["How beautiful the flowers are!","Những bông hoa đẹp quá!"],["How clever you are!","Bạn thông minh quá!"]],
+ tip:"Chủ ngữ số nhiều thì dùng are, số ít thì dùng is.",v:"",q:"Câu cảm thán How + adj tiếng Anh tiểu học"},
+{t:"5. Ngày tháng: on the + số thứ tự + of + tháng",form:"on the + số thứ tự + of + tháng",
+ how:"Khi có cả ngày và tháng thì dùng giới từ ON. Ngày phải đọc bằng số thứ tự: first (1), second (2), third (3), eighth (8), ninth (9)... Hỏi: When is your birthday?",
+ ex:[["My birthday is on the ninth of June.","Sinh nhật mình vào ngày 9 tháng 6."],["The International Women's Day is on the eighth of March.","Ngày Quốc tế Phụ nữ là 8/3."],["The first of December","ngày 1 tháng 12"]],
+ tip:"Hay viết sai: the eight → đúng là the eighth. Sau June là July.",v:"",q:"Cách đọc ngày tháng tiếng Anh số thứ tự tiểu học"},
+{t:"6. Thì hiện tại đơn với chủ ngữ số nhiều",form:"S (số nhiều) + V (nguyên mẫu) + ...",
+ how:"Chủ ngữ số nhiều như we, you, they, Tom and Mary thì động từ giữ nguyên, KHÔNG thêm s/es. Thường đi với usually, often, always.",
+ ex:[["Tom and Mary usually listen to music.","Tom và Mary thường nghe nhạc."],["What are they talking about?","Họ đang nói về chuyện gì?"]],
+ tip:"Chỉ he, she, it (số ít) mới thêm s/es.",v:"",q:"thì hiện tại đơn tiếng Anh tiểu học"},
+{t:"7. This / That is - These / Those are",form:"This / That is + danh từ số ít;  These / Those are + danh từ số nhiều",
+ how:"This/These: vật ở gần. That/Those: vật ở xa. Số ít dùng is, số nhiều dùng are và danh từ thêm s.",
+ ex:[["This pink pen is for you.","Cây bút hồng này tặng bạn."],["These books are brown.","Những cuốn sách này màu nâu."]],
+ tip:"These/Those luôn đi với are.",v:"",q:"this that these those tiếng Anh tiểu học"},
+{t:"8. Hỏi và trả lời về môn học, nghề nghiệp",form:"What subjects do you dislike? - I don't like ...;  work as a + nghề",
+ how:"dislike = không thích. Trả lời bằng I don't like + môn học. Work as a + nghề nghĩa là làm nghề gì.",
+ ex:[["What subjects do you dislike?","Bạn không thích môn nào?"],["I don't like Maths and Art.","Mình không thích Toán và Mỹ thuật."],["She works as a nurse.","Cô ấy làm y tá."]],
+ tip:"Study hard for the exam: học chăm chỉ cho kỳ thi.",v:"",q:"What subjects do you like ngữ pháp tiếng Anh tiểu học"},
+{t:"9. Quy tắc phát âm: ar, ath, as, an đọc là /ɑː/",form:"ar, ath, as, an → /ɑː/",
+ how:"Ở nhiều từ, các chữ này được đọc là âm a kéo dài /ɑː/, miệng mở rộng.",
+ ex:[["car","xe hơi"],["path","con đường nhỏ"],["class","lớp học"],["dance","nhảy múa"]],
+ tip:"Nghe và lặp lại từng từ 3 lần.",v:"",q:"phát âm /ɑː/ tiếng Anh cho trẻ em"},
+{t:"10. Hỏi bạn đi cùng ai: Who ... go with?",form:"Who + do/does + S + go + (to ...) + with?  -  S + go + (to ...) + with + người",
+ how:"Who ... with dùng để hỏi đi cùng với ai. Cuối câu hỏi có with. Trả lời bằng I go with + người. Chủ ngữ số nhiều hoặc I/you/we/they thì dùng do, he/she/it thì dùng does.",
+ ex:[["Who do you go to the zoo with?","Bạn đi sở thú với ai?"],["I go with my mother.","Mình đi với mẹ."],["Who does she go to school with?","Cô ấy đi học với ai?"]],
+ tip:"Đừng quên with ở cuối câu hỏi.",v:"",q:"Who do you go with cách hỏi đi cùng ai tiếng Anh tiểu học"},
+{t:"11. Tính từ sở hữu: my, your, our, her, his, their",form:"Tính từ sở hữu + danh từ",
+ how:"Dùng để nói vật đó là của ai. my: của tôi. your: của bạn. our: của chúng tôi. her: của cô ấy. his: của anh ấy. their: của họ. Đứng ngay trước danh từ.",
+ ex:[["Our garden is big.","Khu vườn của chúng tôi rộng."],["Her bag and shirts are blue and black.","Cặp và áo của cô ấy màu xanh và đen."],["Their school is in Hai Ba Trung District.","Trường của họ ở quận Hai Bà Trưng."]],
+ tip:"Hai danh từ nối bằng and (bag and shirts) thì dùng are.",v:"",q:"tính từ sở hữu my your our her his their tiếng Anh tiểu học"},
+{t:"12. Học chăm chỉ cho kỳ thi: Study hard for ...",form:"Study hard for + danh từ;  S + work(s) as a + nghề",
+ how:"Study hard for + danh từ nghĩa là học chăm chỉ cho điều gì đó. Work as a + nghề nghĩa là làm nghề gì. Chú ý nghề: a nurse (y tá).",
+ ex:[["Study hard for the exam.","Hãy học chăm chỉ cho kỳ thi."],["He works as a nurse.","Anh ấy làm y tá."],["I wash the car on Sunday.","Mình rửa xe vào Chủ nhật."]],
+ tip:"Chủ ngữ he/she/it thì work thêm s: works.",v:"",q:"Study hard for exam Work as a nurse tiếng Anh tiểu học"},
+{t:"13. Hỏi về sở thích và lời chào tạm biệt",form:"What is your hobby? - My hobby is + V-ing;  See you tomorrow.",
+ how:"What is your hobby? nghĩa là Sở thích của bạn là gì? Trả lời My hobby is + động từ ing. See you tomorrow nghĩa là Hẹn gặp lại ngày mai, dùng khi tạm biệt.",
+ ex:[["What is your hobby?","Sở thích của bạn là gì?"],["My hobby is swimming.","Sở thích của mình là bơi."],["See you tomorrow.","Hẹn gặp lại ngày mai."]],
+ tip:"Sau My hobby is, động từ thêm ing.",v:"",q:"What is your hobby sở thích tiếng Anh tiểu học"},
+{t:"14. Từ trái nghĩa (opposites)",form:"Opposite of A is B",
+ how:"Từ trái nghĩa là hai từ có nghĩa ngược nhau. Hỏi: What is the opposite of short? Trả lời: The opposite of short is tall.",
+ ex:[["Opposite of short is tall.","Trái nghĩa của thấp là cao."],["Big - small","to - nhỏ"],["New - old","mới - cũ"],["Clever - stupid","thông minh - ngốc"]],
+ tip:"Học từ theo cặp trái nghĩa sẽ nhớ lâu hơn.",v:"",q:"từ trái nghĩa tiếng Anh tiểu học opposites"},
+{t:"15. Câu mệnh lệnh: Be quiet! / Keep silent!",form:"Be + tính từ!  -  Keep + tính từ!",
+ how:"Dùng để bảo ai giữ trật tự. Be quiet nghĩa là hãy yên lặng. Keep silent nghĩa là giữ im lặng. Khi xin lỗi người lớn, nói: Sorry, sir.",
+ ex:[["Be quiet!","Hãy yên lặng!"],["Sorry, sir.","Xin lỗi thầy ạ."],["Keep silent, please.","Xin hãy giữ im lặng."]],
+ tip:"Với thầy cô và người lớn, nhớ thêm please hoặc sir.",v:"",q:"câu mệnh lệnh be quiet keep silent tiếng Anh tiểu học"},
+{t:"16. Số lần: once, twice, at least",form:"S + V + at least + số lần + a week/month",
+ how:"once: 1 lần. twice: 2 lần. Từ 3 lần trở lên dùng three times, four times... at least nghĩa là ít nhất.",
+ ex:[["I go to the zoo at least twice a month.","Mình đi sở thú ít nhất 2 lần một tháng."],["Twice","2 lần"]],
+ tip:"Không nói two times thay cho twice trong câu cơ bản. Twice là cách nói tự nhiên hơn.",v:"",q:"once twice three times tiếng Anh tiểu học"},
+{t:"17. Phát âm /uː/ và /juː/",form:"move, do → /uː/;  cute, music → /juː/",
+ how:"move và do có âm /uː/ giống nhau, môi tròn và kéo dài. cute và music có âm /juː/ giống nhau, bắt đầu bằng âm y rồi kéo dài uː.",
+ ex:[["move","di chuyển"],["do","làm"],["cute","dễ thương"],["music","âm nhạc"]],
+ tip:"Nghe 🔊 rồi đọc lại 3 lần để nhớ âm.",v:"",q:"phát âm /uː/ /juː/ tiếng Anh cho trẻ em"}
+]},
+{date:"11/11/2026", items:[
+{t:"18. any trong câu phủ định và câu hỏi",form:"S + don't/doesn't + have + any + danh từ số nhiều;  Do you have any + danh từ?",
+ how:"any dùng trong câu phủ định (có not) hoặc câu hỏi, nghĩa là bất kỳ, một chút nào. Câu khẳng định thì dùng some.",
+ ex:[["I don't have any pens.","Mình không có cây bút nào."],["Do you have any pens?","Bạn có cây bút nào không?"],["I have some pens.","Mình có vài cây bút."]],
+ tip:"Phủ định hoặc câu hỏi dùng any, câu khẳng định dùng some.",v:"",q:"any some câu phủ định câu hỏi tiếng Anh tiểu học"},
+{t:"19. work as + nghề",form:"S + work(s) as + a/an + nghề",
+ how:"work as nghĩa là làm việc như là, làm nghề gì. Sau as là a hoặc an rồi đến tên nghề. Chủ ngữ là một người (he, she, my sister) thì work thêm s.",
+ ex:[["My sister works as a nurse.","Chị mình làm y tá."],["My father works as a driver.","Bố mình làm tài xế."],["I work as a teacher.","Mình làm giáo viên."]],
+ tip:"Nhớ a/an trước nghề. Chủ ngữ số ít (he/she/my sister) thì works.",v:"",q:"work as a nurse nghĩa là gì tiếng Anh tiểu học"},
+{t:"20. Thì tương lai đơn: will + V",form:"S + will + động từ nguyên mẫu;  phủ định: S + will not (won't) + V",
+ how:"Thì tương lai đơn nói về việc sẽ xảy ra trong tương lai. Sau will là động từ nguyên mẫu, không thêm s, không thêm to. Viết gọn: I will = I'll, will not = won't.",
+ ex:[["I will go to the park tomorrow.","Ngày mai mình sẽ đi công viên."],["She will help you.","Cô ấy sẽ giúp bạn."],["They won't come.","Họ sẽ không đến."]],
+ tip:"Sau will luôn là động từ nguyên mẫu, kể cả he, she, it.",v:"",q:"thì tương lai đơn will tiếng Anh tiểu học"},
+{t:"21. Câu mệnh lệnh phủ định: Don't + V",form:"Don't + động từ nguyên mẫu + ...!",
+ how:"Dùng để bảo ai đừng làm gì. Don't = Do not. Sau Don't là động từ nguyên mẫu. too fast nghĩa là quá nhanh.",
+ ex:[["Don't ride your bike too fast!","Đừng đạp xe quá nhanh!"],["Don't run in class.","Đừng chạy trong lớp."],["Don't be late.","Đừng đến muộn."]],
+ tip:"too đứng trước tính từ hoặc trạng từ: too fast, too slow.",v:"",q:"Don't + động từ câu mệnh lệnh phủ định tiếng Anh tiểu học"},
+{t:"22. Tính từ đứng trước danh từ",form:"a/an + tính từ + danh từ",
+ how:"Tính từ miêu tả danh từ và đứng ngay trước danh từ đó. Khác với tiếng Việt, tiếng Anh nói tính từ trước rồi mới đến danh từ.",
+ ex:[["a crowded street","một con phố đông đúc"],["a red pen","một cây bút đỏ"],["a big house","một ngôi nhà to"]],
+ tip:"Không nói a street crowded. Phải nói a crowded street.",v:"",q:"tính từ đứng trước danh từ tiếng Anh tiểu học"},
+{t:"23. Quá khứ đơn: động từ bất quy tắc eat → ate",form:"S + V2 (quá khứ) + ...",
+ how:"Quá khứ đơn nói về việc đã xảy ra. Nhiều động từ không thêm ed mà đổi dạng, gọi là động từ bất quy tắc: eat đổi thành ate, go thành went, see thành saw.",
+ ex:[["eat the cake → ate the cake","ăn bánh → đã ăn bánh"],["I ate the cake yesterday.","Hôm qua mình đã ăn bánh."],["go → went, see → saw","đi → đã đi, thấy → đã thấy"]],
+ tip:"Dạng quá khứ phải học thuộc, không thêm ed.",v:"",q:"động từ bất quy tắc eat ate quá khứ đơn tiếng Anh tiểu học"},
+{t:"24. Tương lai gần: be going to + V",form:"S + am/is/are + going to + động từ nguyên mẫu",
+ how:"Dùng để nói dự định sắp làm. I dùng am, he/she/it dùng is, we/you/they dùng are. Sau going to là động từ nguyên mẫu.",
+ ex:[["We are going to see a movie tonight.","Tối nay chúng mình sẽ đi xem phim."],["I am going to visit the circus.","Mình sẽ đi xem xiếc."],["She is going to practise.","Cô ấy sẽ luyện tập."]],
+ tip:"movie và film đều là phim. tonight nghĩa là tối nay.",v:"",q:"be going to tương lai gần tiếng Anh tiểu học"}
+]},
+{date:"09/11/2026", items:[
+{t:"25. Trái nghĩa: A is opposite of B",form:"A is (the) opposite of B",
+ how:"Dùng để nói hai từ có nghĩa ngược nhau. Ví dụ clean (sạch) trái nghĩa với dirty (bẩn).",
+ ex:[["Clean is opposite of dirty.","Sạch trái nghĩa với bẩn."],["Tall is opposite of short.","Cao trái nghĩa với thấp."],["Big - small","to - nhỏ"]],
+ tip:"Học từ theo cặp trái nghĩa sẽ nhớ lâu hơn.",v:"",q:"từ trái nghĩa clean dirty tiếng Anh tiểu học"},
+{t:"26. in + màu sắc: beautiful in white",form:"S + look(s) + tính từ + in + màu",
+ how:"in + màu sắc nghĩa là mặc đồ màu đó. beautiful in white nghĩa là đẹp khi mặc màu trắng.",
+ ex:[["She looks beautiful in white.","Cô ấy trông thật đẹp khi mặc đồ trắng."],["He is in blue.","Cậu ấy mặc đồ màu xanh."]],
+ tip:"Giới từ dùng là in (không dùng with, on).",v:"",q:"giới từ in với màu sắc beautiful in white tiếng Anh"},
+{t:"27. twice your age: gấp đôi",form:"S + be + twice + your age",
+ how:"twice nghĩa là 2 lần, gấp đôi. I'm twice your age nghĩa là mình nhiều hơn bạn đúng gấp đôi tuổi, ví dụ bạn 10 tuổi thì mình 20 tuổi.",
+ ex:[["I'm twice your age.","Tuổi của mình gấp đôi tuổi bạn."],["He goes there twice a week.","Cậu ấy đến đó 2 lần một tuần."]],
+ tip:"once = 1 lần, twice = 2 lần, three times = 3 lần.",v:"",q:"twice your age gấp đôi tiếng Anh tiểu học"}
+]}
+];
+
+const E=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pd=s=>{const[a,b,c]=s.split("/").map(Number);return new Date(c,b-1,a)};
+const parse=t=>t.trim().split("\n").filter(Boolean).map(l=>l.split("|"));
+const fresh=d=>(Date.now()-pd(d))/864e5<=NEW_DAYS;
+const short=d=>d.slice(0,5);
+const TTS="speechSynthesis"in window;let voices=[],stp=false;
+if(TTS){const lv=()=>{voices=speechSynthesis.getVoices()};lv();speechSynthesis.onvoiceschanged=lv}
+function utter(t,l,end){const u=new SpeechSynthesisUtterance(t);u.lang=l;u.rate=l==="en-US"?0.8:0.95;
+ const v=voices.find(x=>x.lang.replace("_","-").startsWith(l));if(v)u.voice=v;if(end){u.onend=end;u.onerror=end}speechSynthesis.speak(u)}
+const sayEN=t=>{try{say(t)}catch(e){TTS&&(speechSynthesis.cancel(),utter(t,"en-US"))}};
+const sayVI=t=>{if(TTS){speechSynthesis.cancel();utter(t,"vi-VN")}};
+const nuStop=()=>{stp=true;TTS&&speechSynthesis.cancel()};
+async function readList(a){stp=false;for(const t of a){if(stp)return;await new Promise(r=>{speechSynthesis.cancel();utter(t,"en-US",()=>setTimeout(r,700))})}}
+const sp=(t,l)=>`<button class="nsp" aria-label="Nghe" data-nu="s" data-t="${E(t)}" data-l="${l||"en"}">🔊</button>`;
+const LS={get(){try{return JSON.parse(localStorage.getItem("ioeNewDone")||"{}")}catch(e){return{}}},set(o){try{localStorage.setItem("ioeNewDone",JSON.stringify(o))}catch(e){}}};
+
+const TL=[["Con vật","🐍","python,crab,goose,lamb,snake"],
+["Đồ dùng","🎒","boots,belt,uniform,key,sharpener,bike,plate,spoon,cup,box,mask,bag,shirt,pen,globe,map,flag"],
+["Ăn uống","🍎","juice,jam,a glass of milk,ice cream,cake,pizza,tea,orange,coconut"],
+["Tính từ & màu sắc","🎨","clean,dirty,crowded,white,lazy,clever,stupid,new,old,big,small,tall,short,cute,quiet,pink,blue,black,brown,colour,triangle,square"],
+["Nơi chốn & thiên nhiên","🏡","cottage,airport,circus,on the beach,stage,bedroom,park,lake,zoo,house,room,garden,yard,district,nursing home,stream,fence,sea,sand,earth,planet,lotus,flower,winter,capital"],
+["Trường học & nghề","🏫","grade,practise,history,geography,information technology (it),physical education (pe),exam,penfriend,nurse,spell,syllable,side"],
+["Thời gian & số lần","📅","june,july,december,tomorrow,twice,at least"],
+["Hoạt động & cụm từ","🏃","go for a picnic,movie,film,too fast,ate,run,wash the car,smell,move,smiling,dislike,talk about,keep silent,sir,music,in the middle,our,your,her,hobby"]];
+const TM={},TN=TL.map(t=>t[1]+" "+t[0]);TL.forEach(([n,i,l])=>l.split(",").forEach(w=>TM[w]=i+" "+n));
+const words=()=>{const a=[];VOCAB.forEach(d=>parse(d.text).forEach(([en,vi,ex,tp])=>a.push({en,vi,ex,date:d.date,tp:tp||TM[en.toLowerCase()]||"📌 Từ mới"})));return a};
+const GL=[["💬 Giao tiếp & lời đề nghị",[1,2,3,10,13,15,21]],["🧱 Cấu trúc câu",[4,7,8,11,12,18,19,22,26]],["⏳ Các thì: hiện tại, quá khứ, tương lai",[6,23,20,24]],["📅 Ngày tháng & số lần",[5,16,27]],["🔤 Từ trái nghĩa & phát âm",[14,25,9,17]]];
+const nW=words().length,nG=GRAM.reduce((a,d)=>a+d.items.length,0),vd=VOCAB[0].date,gd=GRAM[0].date,fv=fresh(vd),fg=fresh(gd);
+
+document.head.insertAdjacentHTML("beforeend",`<style>
+.nu .ctl{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:10px 12px;margin:10px 0}
+.nu .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+.nu input[type=search],.nu select{padding:8px 10px;border:1px solid var(--bd);border-radius:10px;font:inherit;background:var(--card);color:var(--tx);min-width:0}
+.nu input[type=search]{flex:1 1 160px}
+.nu .chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}
+.nu .chip{flex:none;white-space:nowrap;font-weight:700;border-radius:999px}
+.nu .cnt{font-size:13px;color:var(--mu)}
+.nu .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.nu .w{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px 10px;position:relative}
+.nu .w .t,.nu .ex2 .t{flex:1;min-width:0}
+.nu .en{font-weight:800;color:var(--pr);font-size:17px}.nu .ex{color:#087f5b;font-style:italic;font-size:13px}
+.nu .nw{position:absolute;top:-7px;right:8px;background:#ffe600;color:#c92a2a;font-size:10px;font-weight:800;padding:0 6px;border-radius:8px}
+.nu .hid .w:not(.show) .vi,.nu .hid .w:not(.show) .ex{filter:blur(7px)}
+.nsp{flex:none;border-radius:50%;width:38px;height:38px;padding:0;min-height:0}
+.nu .pg{height:10px;background:var(--bd);border-radius:9px;overflow:hidden}.nu .pg i{display:block;height:100%;background:#12b886;width:0;transition:width .3s}
+.nu details{background:var(--card);border:1px solid var(--bd);border-radius:12px;margin-bottom:7px}
+.nu summary{cursor:pointer;padding:11px 12px;font-weight:800;list-style:none;display:flex;gap:8px;align-items:center}
+.nu summary::before{content:"▸";color:var(--pr)}.nu details[open] summary::before{content:"▾"}
+.nu summary span.d{margin-left:auto;font-size:11px;font-weight:700;color:#7a5c00;background:#fff3bf;border-radius:8px;padding:1px 7px;white-space:nowrap}
+.nu details.done summary::after{content:"✓";color:#fff;background:#12b886;border-radius:50%;width:20px;height:20px;text-align:center;font-size:13px;line-height:20px}
+.nu .bd{padding:0 14px 14px}
+.nu .form{background:rgba(79,70,229,.1);border-left:5px solid var(--pr);padding:8px 12px;border-radius:8px;font-weight:700;margin:6px 0}
+.nu .tip{background:rgba(220,38,38,.1);border-left:5px solid #dc2626;padding:7px 12px;border-radius:8px;margin:8px 0}
+.nu .vid{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;margin:10px 0;background:#000}
+.nu .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.nu .ex2{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px dashed var(--bd)}
+.nu a.btn{display:inline-block;text-decoration:none;padding:9px 14px;border-radius:10px;background:#e03131;color:#fff;font-weight:700}
+.nu .ok{background:#12b886;color:#fff;border-color:#12b886}
+.nuban{border:2px solid #ff3d6e;border-radius:16px;padding:12px;margin:10px 0;background:var(--card);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.nuban b{flex:1 1 100%}
+.nuban button{flex:1 1 220px;padding:14px 10px;font-weight:800;color:#fff;border:0}
+.nuban .a1,#nav button[onclick="go('newv')"]{background:#ff3d6e!important;color:#fff!important}
+.nuban .a2,#nav button[onclick="go('newg')"]{background:#12b886!important;color:#fff!important}
+${fv?"#nav button[onclick=\"go('newv')\"]:not(.on),.nuban .a1{animation:nubl 1s steps(2,start) infinite}":""}
+${fg?"#nav button[onclick=\"go('newg')\"]:not(.on),.nuban .a2{animation:nubl 1s steps(2,start) infinite}":""}
+@keyframes nubl{50%{filter:brightness(1.6)}}
+#nav button.on[onclick="go('newv')"],#nav button.on[onclick="go('newg')"]{outline:3px solid #ffe600}
+</style>`);
+
+let VS={tp:"all",date:"all",q:"",hide:false},cur=[];
+function vocabShell(){const all=words(),dates=VOCAB.map(d=>d.date);
+ const tps=[...TN,...new Set(all.map(w=>w.tp).filter(t=>!TN.includes(t)))].filter(t=>all.some(w=>w.tp===t));
+ return `<div class="ctl"><div class="row"><input type="search" id="nq" placeholder="🔍 Tìm từ (tiếng Anh hoặc tiếng Việt)">
+ <select id="nd"><option value="all">📅 Tất cả các ngày</option>${dates.map(d=>`<option>${d}</option>`).join("")}</select>
+ <label><input type="checkbox" id="nh"> 🙈 Tự kiểm tra (ẩn nghĩa)</label></div>
+ <div class="chips"><button class="chip on" data-nu="chip" data-tp="all">📚 Tất cả (${all.length})</button>${tps.map(t=>`<button class="chip" data-nu="chip" data-tp="${E(t)}">${E(t)} (${all.filter(w=>w.tp===t).length})</button>`).join("")}</div>
+ <div class="row" style="margin:8px 0 0"><button class="p" data-nu="rl">▶ Đọc các từ đang hiển thị</button><button data-nu="stop">⏹ Dừng</button><span class="cnt" id="nc"></span></div></div><div id="nl"></div>`}
+function vocabList(){const q=VS.q.trim().toLowerCase();
+ cur=words().filter(w=>(VS.tp==="all"||w.tp===VS.tp)&&(VS.date==="all"||w.date===VS.date)&&(!q||(w.en+" "+w.vi).toLowerCase().includes(q)));
+ document.getElementById("nc").textContent=cur.length+" từ";const l=document.getElementById("nl");l.className=VS.hide?"hid":"";
+ l.innerHTML=cur.length?`<div class="grid">${cur.map(w=>`<div class="w" data-nu="card">${fresh(w.date)?'<span class="nw">MỚI</span>':""}${sp(w.en)}<div class="t"><div class="en">${E(w.en)}</div><div class="vi">${E(w.vi)}</div>${w.ex?`<div class="ex">${E(w.ex)}</div>`:""}</div>${w.ex?sp(w.ex):""}</div>`).join("")}</div>`:"<p>Không tìm thấy từ phù hợp.</p>"}
+function gramHTML(){const done=LS.get(),items=[];GRAM.forEach(d=>d.items.forEach(g=>items.push({...g,date:d.date})));
+ const used=new Set(),sec=[];
+ GL.forEach(([n,nums])=>{const l=items.filter(g=>!g.c&&nums.includes(parseInt(g.t)));l.forEach(g=>used.add(g));sec.push([n,l])});
+ const by={};items.filter(g=>!used.has(g)).forEach(g=>{const k=g.c||"✏️ Ngữ pháp khác";(by[k]=by[k]||[]).push(g)});Object.entries(by).forEach(e=>sec.push(e));
+ const item=g=>{const vid=g.v?`<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/${E(g.v)}" allowfullscreen loading="lazy" title="${E(g.t)}"></iframe></div>`
+  :`<p><a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(g.q)}">▶ Xem video bài giảng</a></p>`;
+  return `<details data-k="${E(g.t)}" class="${done[g.t]?"done":""}"><summary>${E(g.t)}<span class="d">${short(g.date)}</span></summary><div class="bd"><div class="form">📐 ${E(g.form)}</div><p>${E(g.how)} ${sp(g.how,"vi")}</p>${vid}
+  ${g.ex.map(([e,v])=>`<div class="ex2">${sp(e)}<div class="t"><b>${E(e)}</b><br><span class="mu">${E(v)}</span></div></div>`).join("")}
+  <div class="tip">⚠️ ${E(g.tip)}</div><button class="ok" data-nu="done" data-k="${E(g.t)}">✔ Em đã học xong</button></div></details>`};
+ return `<div class="ctl"><div class="row"><b>🎯 Tiến độ học</b><span class="cnt" id="ngp"></span></div><div class="pg"><i id="ngb"></i></div></div>`+
+  sec.filter(s=>s[1].length).map(([n,l])=>`<h3 class="gh">${E(n)} (${l.length})</h3>${l.map(item).join("")}`).join("")}
+function gramProg(){const n=document.querySelectorAll(".nu details").length,d=document.querySelectorAll(".nu details.done").length,p=document.getElementById("ngp");
+ if(p){p.textContent=`Đã học ${d}/${n} điểm ngữ pháp`;document.getElementById("ngb").style.width=(n?d/n*100:0)+"%"}}
+
+V_.newv=()=>{VS={tp:"all",date:"all",q:"",hide:false};
+ M(`<div class="hero"><h2>📚 Từ vựng mới cập nhật</h2><p>Cập nhật ngày ${vd} · ${nW} từ · Bấm 🔊 để nghe, đọc theo 3 lần rồi viết vào vở.</p></div><div class="nu">${vocabShell()}</div>`);vocabList()};
+V_.newg=()=>{M(`<div class="hero"><h2>✏️ Ngữ pháp mới cập nhật</h2><p>Cập nhật ngày ${gd} · ${nG} điểm ngữ pháp · Mỗi điểm có giải thích, ví dụ có tiếng và video.</p></div><div class="nu">${gramHTML()}</div>`);gramProg()};
+
+const _home=V_.home;
+V_.home=()=>{_home();const m=document.getElementById("m");if(!m)return;
+ m.insertAdjacentHTML("afterbegin",`<div class="nuban"><b>📢 MỚI CẬP NHẬT · học ngay nào!</b><button class="a1" onclick="go('newv')">📚 Từ vựng mới<br><small>${vd} · ${nW} từ</small></button><button class="a2" onclick="go('newg')">✏️ Ngữ pháp mới<br><small>${gd} · ${nG} điểm</small></button></div>`)};
+
+document.addEventListener("click",e=>{const el=e.target.closest("[data-nu]");if(!el||!el.closest(".nu"))return;const k=el.dataset.nu;
+ if(k==="s"){el.dataset.l==="vi"?sayVI(el.dataset.t):sayEN(el.dataset.t)}
+ else if(k==="chip"){VS.tp=el.dataset.tp;document.querySelectorAll(".nu .chip").forEach(x=>x.classList.toggle("on",x===el));vocabList()}
+ else if(k==="rl")readList(cur.map(w=>w.en));
+ else if(k==="stop")nuStop();
+ else if(k==="card"){if(VS.hide&&!e.target.closest(".nsp"))el.classList.toggle("show")}
+ else if(k==="done"){const o=LS.get(),n=el.dataset.k;o[n]=!o[n];LS.set(o);el.closest("details").classList.toggle("done",!!o[n]);gramProg()}});
+document.addEventListener("input",e=>{if(e.target.id==="nq"){VS.q=e.target.value;vocabList()}});
+document.addEventListener("change",e=>{if(e.target.id==="nd"){VS.date=e.target.value;vocabList()}if(e.target.id==="nh"){VS.hide=e.target.checked;vocabList()}});
+document.addEventListener("toggle",e=>{const d=e.target;if(d.tagName==="DETAILS"&&d.open&&d.closest(".nu"))document.querySelectorAll(".nu details[open]").forEach(x=>{if(x!==d)x.open=false})},true);
+
+/* menu: thêm nhóm MỚI CẬP NHẬT ngay sau Trang chủ */
+NAV.push(["newv","📚 Từ vựng mới"+(fv?" 🆕":"")],["newg","✏️ Ngữ pháp mới"+(fg?" 🆕":"")]);
+const hi=NG[0][1].indexOf("home");if(hi>=0)NG[0][1].splice(hi,1);
+NG.unshift(["🏠 BẮT ĐẦU",["home"]],["🆕 MỚI CẬP NHẬT",["newv","newg"]]);
+const _go=go;go=function(v){nuStop();_go(v)};
+buildNav();
+})();
+
+
 go('home');
 </script></body></html>

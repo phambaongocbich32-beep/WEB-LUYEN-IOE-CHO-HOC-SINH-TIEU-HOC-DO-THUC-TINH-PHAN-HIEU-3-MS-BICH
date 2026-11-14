@@ -5,6 +5,7 @@ Web luyện tiếng Anh và IOE cho học sinh tiểu học (lớp 1–5), theo 
 By Ms Pham Thi Ngoc Bich – Do Thuc Tinh Primary School – Campus 3
 
 ## Nội dung
+- 🆕 Mục "Từ vựng mới" và "Ngữ pháp mới" cập nhật theo ngày: từ vựng chia chủ đề có loa, ngữ pháp có giải thích, ví dụ và video
 - Từ vựng theo unit sách giáo khoa, từ vựng thêm, chủ đề, flashcard
 - Mẫu câu lớp 1–5, ngữ pháp cho bé lớp 1–2, mẹo học theo lớp
 - Phát âm, đuôi s/ed, trọng âm
@@ -17,3 +18,6 @@ By Ms Pham Thi Ngoc Bich – Do Thuc Tinh Primary School – Campus 3
 3. Mở đường link GitHub Pages sau vài phút.
 
 Web chạy hoàn toàn trên trình duyệt, không cần máy chủ.
+
+## Cập nhật nội dung mỗi ngày
+Mở `index.html`, tìm `const VOCAB` và `const GRAM`, thêm khối ngày mới lên đầu danh sách. Nhãn MỚI nhấp nháy tự tắt sau 7 ngày.
