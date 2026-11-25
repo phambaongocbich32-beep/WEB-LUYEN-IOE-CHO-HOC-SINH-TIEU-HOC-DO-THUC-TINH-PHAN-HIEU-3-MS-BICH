@@ -59,7 +59,7 @@ button.p{background:linear-gradient(120deg,var(--pr),var(--pr2));border:0;font-w
 </style></head><body>
 <header><h1>🎓 IOE MASTER KIDS</h1><p>ENGLISH &amp; KNOWLEDGE · LEARN – PRACTICE – CHALLENGE – MASTER</p><p style="font-size:12px;opacity:.95;margin-top:4px">By Ms Pham Thi Ngoc Bich · Do Thuc Tinh Primary School – Campus 3</p></header>
 <nav id="nav"></nav><main id="m"></main>
-<footer class="mu" style="text-align:center;padding:16px">By Ms Pham Thi Ngoc Bich – Do Thuc Tinh Primary School – Campus 3<br>Nền tảng luyện tập mô phỏng, không phải website chính thức của IOE.<br>Tiến độ chỉ lưu trên trình duyệt của thiết bị này, chưa đồng bộ giữa các thiết bị.<br><small>Phiên bản menu v21 · 24/11/2026</small></footer>
+<footer class="mu" style="text-align:center;padding:16px">By Ms Pham Thi Ngoc Bich – Do Thuc Tinh Primary School – Campus 3<br>Nền tảng luyện tập mô phỏng, không phải website chính thức của IOE.<br>Tiến độ chỉ lưu trên trình duyệt của thiết bị này, chưa đồng bộ giữa các thiết bị.</footer>
 <script>
 // ===== storage =====
 let S={xp:0,k:{},done:0,hist:[],bad:{},day:{}};
@@ -3900,7 +3900,7 @@ const NG=[['📘 HỌC',['home','vocab','topics','pat','tips','gram','pron','sou
 (()=>{const lab={};NAV.forEach(n=>lab[n[0]]=n[1]);lab.pat='💬 Mẫu câu';lab.tips='💡 Mẹo theo lớp';lab.vocab='📚 Từ vựng';lab.topics='🗂 Chủ đề';lab.exam='📝 Đề thi thử (từ vựng)';lab.ex1='📝 Đề thi thử lớp 1';lab.forms='🧩 Luyện theo dạng';lab.gram='📖 Ngữ pháp';lab.pron='🔤 Phát âm';lab.sound='🔡 Đuôi s/ed & trọng âm';lab.prac='🎯 Luyện tập';lab.mock='🏆 Đề thi thử';lab.daily='🔥 Hằng ngày';lab.lis='🎧 Nghe';lab.read='📖 Đọc';lab.write='✍️ Viết';lab.board='📓 Sổ bảng';lab.prog='📊 Tiến độ';lab.set='⚙️ Cài đặt';lab.flash='🗂 Flashcard';lab.games='🎮 Games';lab.home='🏠 Trang chủ';
  const order=NG.flatMap(g=>g[1]);const left=NAV.map(n=>n[0]).filter(i=>!order.includes(i));
  NAV.splice(0,NAV.length,...order.concat(left).map(i=>[i,lab[i]||i]))})();
-const buildNav=()=>{let h='';NG.forEach(g=>{h+=`<span class="ng">${g[0]}</span>`;g[1].forEach(i=>{const n=NAV.find(x=>x[0]===i);if(n)h+=`<button onclick="go('${n[0]}')">${n[1]}</button>`})});NAV.filter(n=>!NG.some(g=>g[1].includes(n[0]))).forEach(n=>h+=`<button onclick="go('${n[0]}')">${n[1]}</button>`);document.getElementById('nav').innerHTML=h};
+let buildNav=()=>{let h='';NG.forEach(g=>{h+=`<span class="ng">${g[0]}</span>`;g[1].forEach(i=>{const n=NAV.find(x=>x[0]===i);if(n)h+=`<button onclick="go('${n[0]}')">${n[1]}</button>`})});NAV.filter(n=>!NG.some(g=>g[1].includes(n[0]))).forEach(n=>h+=`<button onclick="go('${n[0]}')">${n[1]}</button>`);document.getElementById('nav').innerHTML=h};
 buildNav();
 const _goN=go;go=function(v){_goN(v);document.querySelectorAll('#nav button').forEach(b=>{const m=(b.getAttribute('onclick')||'').match(/go\('(\w+)'\)/);b.classList.toggle('on',!!m&&m[1]===v)})};
 document.head.insertAdjacentHTML('beforeend',`<style>.ng{flex:0 0 auto;align-self:center;font-size:11px;font-weight:800;letter-spacing:.6px;color:#fff;background:linear-gradient(135deg,#1f3b73,#0f6f7c);padding:5px 10px;border-radius:8px;margin:0 2px 0 8px;white-space:nowrap}.ng:first-child{margin-left:0}.gh{margin:16px 4px 6px;color:#1f3b73;font-size:15px;letter-spacing:.5px;border-bottom:2px solid #c9a24d;padding-bottom:4px}</style>`);
@@ -4496,62 +4496,38 @@ const _pick5=pick;pick=function(j){const q=R.qs[R.i],was=R.ans[R.i];_pick5(j);if
 const _kchk5=kchk;kchk=function(){const q=R.qs[R.i],was=R.ans[R.i];_kchk5();if(was==null&&R.ans[R.i]!=null)fb(R.ans[R.i]===1,q)};
 document.head.insertAdjacentHTML('beforeend',`<style>.pr{font-size:22px;font-weight:800;margin-bottom:6px}.pr.ok{color:#15803d;animation:prp .5s}.pr.no{color:#b45309}@keyframes prp{0%{transform:scale(.6)}60%{transform:scale(1.15)}100%{transform:scale(1)}}.cfx{position:fixed;inset:0;pointer-events:none;z-index:99;overflow:hidden}.cfx i{position:absolute;top:-30px;font-style:normal;font-size:26px;animation:cfd 1.5s ease-in forwards}@keyframes cfd{to{transform:translateY(110vh) rotate(360deg);opacity:.6}}</style>`);
 
-
-// ===== v21: menu 2 tầng – nhóm lớn → mục con theo chủ đề =====
-(()=>{
-const LAB={};NAV.forEach(n=>LAB[n[0]]=n[1]);
-Object.assign(LAB,{ex5:'🏫 Đề IOE lớp 5 cấp trường',ex1:'📝 Đề thi thử lớp 1',exam:'📝 Thi thử từ vựng',mock:'🏆 Thi thử tổng hợp',daily:'🔥 Thử thách hằng ngày',kg:'🧒 Ngữ pháp cho bé (lớp 1–2)',flash:'🗂 Flashcard',topics:'🗂 Từ vựng theo chủ đề',vocab:'📚 Từ vựng theo lớp'});
-const MENU=[
- {id:'home',t:'🏠 Trang chủ',go:'home'},
- {id:'new',t:'🆕 Mới cập nhật',s:[['Cập nhật theo ngày',['newv','newg']]]},
- {id:'learn',t:'📘 Học',s:[['📚 Từ vựng',['vocab','topics','flash']],['💬 Ngữ pháp & mẫu câu',['pat','kg','gram','tips']],['🔤 Phát âm',['pron','sound']]]},
- {id:'play',t:'🎮 Luyện & chơi',s:[['🎯 Luyện tập',['prac','forms']],['🎧 Bốn kỹ năng',['lis','read','write']],['🕹 Trò chơi',['games']]]},
- {id:'test',t:'🏆 Thi thử',s:[['🏫 Đề thi chính thức',['ex5','ex1']],['📝 Đề luyện tập',['exam','mock']],['🔥 Mỗi ngày',['daily']]]},
- {id:'me',t:'📊 Của tôi',s:[['Theo dõi & cài đặt',['board','prog','set']]]}
-];
-const inMenu=new Set(MENU.flatMap(g=>g.s?g.s.flatMap(x=>x[1]):[g.go]));
-const extra=NAV.map(n=>n[0]).filter(i=>!inMenu.has(i));
-if(extra.length)MENU.find(g=>g.id==='me').s.push(['Khác',extra]);
-// đồng bộ nhóm cho trang chủ
-NG.splice(0,NG.length,...MENU.filter(g=>g.s).map(g=>[g.t.toUpperCase(),g.s.flatMap(x=>x[1])]));
-const lab=i=>{const n=NAV.find(x=>x[0]===i);return (n&&n[1]&&/🆕/.test(n[1])&&!/🆕/.test(LAB[i]||'')?(LAB[i]||n[1])+' 🆕':(LAB[i]||(n?n[1]:i)))};
-let open=null;
-const grpOf=v=>{const g=MENU.find(g=>g.go===v||(g.s&&g.s.some(x=>x[1].includes(v))));return g?g.id:null};
-const nav=document.getElementById('nav');
-function render(){
- const act=grpOf(cur);
- let h=MENU.map(g=>g.go?`<button class="mg${act===g.id?' on':''}" onclick="go('${g.go}');NAVX.close()">${g.t}</button>`
-  :`<button class="mg${act===g.id?' on':''}${open===g.id?' op':''}" onclick="NAVX.tog('${g.id}')" aria-expanded="${open===g.id}">${g.t} <span class="car">▾</span></button>`).join('');
- const g=MENU.find(x=>x.id===open);
- if(g)h+=`<div class="mp">${g.s.map(s=>`<div class="ms">${s[0]?`<div class="mh">${s[0]}</div>`:''}<div class="mi">${s[1].map(i=>`<button class="${i===cur?'on ':''}${i==='ex5'?'hot':''}" onclick="go('${i}');NAVX.close()">${lab(i)}</button>`).join('')}</div></div>`).join('')}</div>`;
- nav.innerHTML=h}
-window.NAVX={tog(id){open=open===id?null:id;render()},close(){open=null;render()}};
-document.addEventListener('click',e=>{if(open&&e.target.isConnected&&!e.target.closest('#nav')){open=null;render()}});
-const _gn=go;go=function(v){_gn(v);open=null;render()};
+// ===== v21: menu hai tầng (nhóm lớn → mục con) =====
+const NG2=[
+ ['🏠 Trang chủ',['home']],
+ ['🆕 Mới cập nhật',['newv','newg']],
+ ['📚 Từ vựng',['vocab','topics','flash','exam']],
+ ['✏️ Ngữ pháp & Phát âm',['gram','kg','pat','tips','pron','sound']],
+ ['🎮 Chơi & Luyện kỹ năng',['games','prac','forms','lis','read','write']],
+ ['🏆 Thi thử',['ex5','ex1','mock','daily']],
+ ['📊 Theo dõi',['board','prog','set']]];
+const NL={home:'🏠 Trang chủ',newv:'📚 Từ vựng mới',newg:'✏️ Ngữ pháp mới',vocab:'📚 Từ vựng theo unit',topics:'🗂 Theo chủ đề',flash:'🗂 Flashcard',exam:'📝 Từ vựng đề thi',gram:'📖 Ngữ pháp',kg:'🧒 Ngữ pháp cho bé (lớp 1–2)',pat:'💬 Mẫu câu',tips:'💡 Mẹo theo lớp',pron:'🔤 Phát âm',sound:'🔡 Đuôi s/ed & trọng âm',games:'🎮 Games',prac:'🎯 Luyện tập',forms:'🧩 Theo dạng bài IOE',lis:'🎧 Nghe',read:'📖 Đọc',write:'✍️ Viết',ex5:'🏫 Đề IOE lớp 5 cấp trường',ex1:'📝 Đề thi thử lớp 1',mock:'🏆 Mock Test (Trường/Xã/TP/QG)',daily:'🔥 Luyện hằng ngày',board:'📓 Sổ bảng',prog:'📊 Tiến độ',set:'⚙️ Cài đặt'};
+let NGA=0;
+const hasNew=()=>/🆕/.test((NAV.find(n=>n[0]==='newv')||[,''])[1]+(NAV.find(n=>n[0]==='newg')||[,''])[1]);
+buildNav=function(){const el=document.getElementById('nav');if(!el)return;
+ const lab=id=>(NAV.find(n=>n[0]===id)&&/🆕/.test(NAV.find(n=>n[0]===id)[1])?NL[id]+' 🆕':NL[id])||id;
+ el.innerHTML=`<div class="gts">${NG2.map((g,i)=>g[1].length===1?`<button class="gt${NGA===i?' ga':''}" onclick="go('${g[1][0]}')">${g[0]}</button>`:`<button class="gt${NGA===i?' ga':''}${i===1&&hasNew()?' gnew':''}" onclick="NGA=${i};buildNav()">${g[0]}</button>`).join('')}</div>${NG2[NGA][1].length>1?`<div class="sbs">${NG2[NGA][1].map(id=>`<button class="sb${typeof cur!=='undefined'&&cur===id?' on':''}" onclick="go('${id}')">${lab(id)}</button>`).join('')}</div>`:''}`};
+const _goG=go;go=function(v){const i=NG2.findIndex(g=>g[1].includes(v));if(i>=0)NGA=i;buildNav();_goG(v);document.querySelectorAll('#nav button.sb').forEach(b=>{const m=(b.getAttribute('onclick')||'').match(/go\('(\w+)'\)/);b.classList.toggle('on',!!m&&m[1]===v)})};
 document.head.insertAdjacentHTML('beforeend',`<style>
-nav{flex-wrap:wrap!important;overflow:visible!important;gap:6px!important;padding:8px!important;z-index:20!important}
-nav button.mg{font-size:15px;font-weight:700;padding:9px 14px;border-radius:12px;background:#f1f0ff;color:#4338ca;border:1px solid #e0e0ff}
-nav button.mg.op{background:#e0e7ff;border-color:#6366f1}
-nav button.mg.on{background:linear-gradient(120deg,#6366f1,#06b6d4);color:#fff}
-.car{font-size:11px;opacity:.7}
-.mp{flex:0 0 100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:4px;padding:12px;border-radius:14px;background:var(--bg);border:1px solid var(--bd);max-height:65vh;overflow:auto}
-.mh{font-size:12px;font-weight:800;letter-spacing:.4px;color:var(--mu);text-transform:uppercase;margin:0 2px 6px}
-.mi{display:flex;flex-direction:column;gap:6px}
-.mi button{text-align:left;border-radius:10px;padding:10px 12px;font-size:15px;background:var(--card);color:var(--tx);border:1px solid var(--bd)}
-.mi button:hover{background:#eef0ff}
-.mi button.on{background:linear-gradient(120deg,#6366f1,#06b6d4);color:#fff}
-.mi button.hot{border:2px solid #c9a24d;background:#fff8e1;color:#7a4b00;font-weight:800}
-.mi button.hot.on{color:#fff}
-.hotb{display:block;width:100%;text-align:left;margin:0 0 12px;padding:16px;border-radius:16px;border:2px solid #c9a24d;background:linear-gradient(120deg,#fff8e1,#ffeec2);color:#7a4b00;font-size:17px;font-weight:800;box-shadow:var(--shadow)}
-.hotb small{display:block;font-weight:500;margin-top:3px;color:#8a6a2b}
-@media (max-width:600px){nav button.mg{flex:1 1 auto;padding:9px 10px;font-size:14px}.mp{grid-template-columns:1fr}}
+#nav{display:block!important;overflow:visible!important;padding:8px 10px!important;background:#fff!important}
+#nav .gts,#nav .sbs{display:flex;flex-wrap:wrap;gap:6px}
+#nav .sbs{margin-top:8px;padding:8px;border-radius:12px;background:#eef3fb}
+#nav button.gt{background:linear-gradient(135deg,#1f3b73,#0f6f7c)!important;color:#fff!important;border:0!important;border-radius:12px!important;padding:9px 14px!important;font-size:14px!important;font-weight:800!important;opacity:.78;text-shadow:none!important;box-shadow:none!important;transform:none!important}
+#nav button.gt:hover{opacity:1}
+#nav button.gt.ga{opacity:1;background:linear-gradient(135deg,#c9a24d,#e8c46a)!important;color:#1f2a44!important;box-shadow:0 3px 10px rgba(201,162,77,.5)!important}
+#nav button.gt.gnew{background:#ff3d6e!important;color:#fff!important;animation:nubl 1s steps(2,start) infinite}
+#nav button.sb{background:#fff!important;color:#1f3b73!important;border:1px solid #c9d6ee!important;border-radius:999px!important;padding:8px 14px!important;font-size:14px!important;font-weight:600!important;text-shadow:none!important;box-shadow:none!important;transform:none!important;animation:none!important;outline:0!important}
+#nav button.sb:hover{background:#dbe7fb!important}
+#nav button.sb.on{background:#1f3b73!important;color:#f1d9a3!important}
+@media(max-width:600px){#nav button.gt{padding:8px 10px!important;font-size:13px!important}#nav button.sb{padding:7px 11px!important;font-size:13px!important}}
 </style>`);
-// trang chủ: nút nổi bật tới đề lớp 5
-const _h2=V_.home;V_.home=()=>{_h2();const m=document.getElementById('m');if(!m)return;
- const b=`<button class="hotb" onclick="go('ex5')">🏫 Đề IOE lớp 5 – Cấp trường 2025–2026<small>3 đề · ${EX5.reduce((a,x)=>a+x.length,0)} câu · máy chấm, khen khi đúng, giải thích khi sai</small></button>`;
- const nb=m.querySelector('.nuban');nb?nb.insertAdjacentHTML('afterend',b):m.insertAdjacentHTML('afterbegin',b)};
-render();
-})();
+buildNav();
+
+NG.splice(0,NG.length,...NG2.filter(g=>g[1][0]!=='home').map(g=>[g[0],g[1].slice()]));
 
 
 go('home');
